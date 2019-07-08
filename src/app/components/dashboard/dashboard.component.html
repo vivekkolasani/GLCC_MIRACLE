@@ -1,0 +1,20 @@
+<mat-sidenav-container class="app-sidenav-container">
+
+  <mat-sidenav class="app-sidenav mat-elevation-z10" #sidenav [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+    <mat-toolbar color="accent"> Dashboard </mat-toolbar>
+    <mat-nav-list>
+      <mat-list-item> Create Order </mat-list-item>
+      <mat-list-item> Review Order/ Invoice </mat-list-item>
+      <mat-list-item> Check Invoice </mat-list-item>
+      <mat-list-item> Payment History </mat-list-item>
+      <mat-list-item> Order Confirmation </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="app-sidenav-content">
+      <app-toolbar (toggleSidenav) = "sidenav.toggle()"></app-toolbar>
+      <div class="wrapper">
+      <!--<router-outlet></router-outlet> -->
+      </div>
+  </div>
+
+</mat-sidenav-container>
