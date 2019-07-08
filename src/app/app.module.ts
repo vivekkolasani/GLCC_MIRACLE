@@ -7,12 +7,14 @@ import { MaterialModule } from './shared/material/material.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<mat-sidenav-container class="app-sidenav-container">
-
-  <mat-sidenav class="app-sidenav mat-elevation-z10" #sidenav [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
+<div>
+    <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav class="app-sidenav mat-elevation-z10" #sidenav [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
     <mat-toolbar color="accent"> Dashboard </mat-toolbar>
     <mat-nav-list>
       <mat-list-item> Create Order </mat-list-item>
@@ -13,8 +13,14 @@
   <div class="app-sidenav-content">
       <app-toolbar (toggleSidenav) = "sidenav.toggle()"></app-toolbar>
       <div class="wrapper">
-      <!--<router-outlet></router-outlet> -->
+          <ul>
+              <li> ABCD </li>
+              <li> EFGH </li>
+              <li> IJKL </li>
+            </ul>
       </div>
-  </div>
+        </div>
+ </mat-sidenav-container>
+</div>
 
-</mat-sidenav-container>
+
