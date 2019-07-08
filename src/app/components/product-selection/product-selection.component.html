@@ -1,0 +1,96 @@
+<div class = "productPage">
+
+<div class = "header-links">
+    <ul >
+    <li> <a href = "#"> Home</a> | </li>
+    <li> <a href = "#"> Back</a> | </li> 
+    <li> <a href = "#"> Logout</a> </li>
+    </ul>
+    
+</div>
+
+<form #myform="ngForm" (ngSubmit)="submitProductInfo(myform)">
+        <div class="form-group row">
+          <label for="searchBySKU" class="col-sm-2 col-form-label">Search From SKU</label>
+          <div class="col-sm-10">
+            <input name = "SKU" type="text" class="form-control" id="searchBySKU" placeholder="Search" ngModel required>
+          </div>
+        </div>
+
+        <div class="form-group row"style="margin-left:0px;margin-right:0px">
+                <label for="sel2" class="col-sm-2 col-form-label">Category:</label>
+                    <select name = "category" class="form-control col-sm-10" id="sel2" ngModel>
+                  <option>Water Bottle</option>
+                  <option>Fruit Juice</option>
+                  <option>Soft Drinks</option>
+                  <option>Cocktails/Mocktails</option>
+                </select>
+              </div>
+
+        <div class="form-group row">
+          <label for="searchByProduct" class="col-sm-2 col-form-label">Search From Product Name</label>
+          <div class="col-sm-10">
+            <input name = "Product" type="text" class="form-control" id="searchByProduct" placeholder="Search" ngModel required>
+          </div>
+        </div>
+
+        <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            <div class="form-group row">
+                    <label for="deliveryDate" class="col-sm-2 col-form-label">Delivery Date(expected)</label>
+                    <div class="col-sm-10">
+                      <input name = "orderDate" type="date" class="form-control" id="deliveryDate" placeholder="" ngModel required>
+                    </div>
+                </div>
+
+
+            <div class="form-group row">
+                        <label for="orderPlacedBy" class="col-sm-2 col-form-label">Order Placed By</label>
+                        <div class="col-sm-10">
+                          <input name ="orderPlacedBy" type="text" class="form-control" id="orderPlacedBy" placeholder="" ngModel required>
+                    </div>
+                </div>
+
+            <div class="form-group row">
+                        <label for="emailID" class="col-sm-2 col-form-label">Email ID</label>
+                        <div class="col-sm-10">
+                          <input name = "emailID" type="email" class="form-control" id="emailID" placeholder="email ID" ngModel required>
+                    </div>
+                </div>
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" [disabled]="!myform.valid">Done</button>
+          </div>
+        </div>
+      </form>
+
+</div>
