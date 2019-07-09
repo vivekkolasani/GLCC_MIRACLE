@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { ProductSelectionComponent } from './components/product-selection/product-selection.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { FormsModule } from '@angular/forms';
 
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
