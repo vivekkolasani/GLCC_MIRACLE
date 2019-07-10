@@ -1,0 +1,46 @@
+.container {
+  text-align: center;
+}
+.container .search {
+  padding: 60px;
+  font-size: 16px;
+}
+.container input {
+  border: 2px solid black;
+  border-radius: 12px;
+}
+.form {
+  margin: 80px;
+  width: 30%;
+  text-align: center;
+}
+.form .col-sm-10 {
+  padding: 10px;
+}
+.container a {
+  float: right;
+  font-size: 18px;
+}
+.container .switch {
+  float: right;
+  padding-right: 30px;
+}
+.btn-toggle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+  width: 100%;
+}
+table-wrapper-scroll-y {
+  display: block;
+}
+
+.submit {
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
