@@ -8,11 +8,12 @@
 
 <div class="form">
   <h1>Order Details:</h1>
-  <form>
+  <form [formGroup]="formGroup">
     <div class="form-group row">
       <label for="input" class="col-xs-2 col-form-label">Order No:</label>
       <div class="col-sm-10">
         <input
+          formControlName="orderNumber"
           type="order No"
           class="form-control"
           id="input"
@@ -24,6 +25,7 @@
       <label for="input" class="col-xs-2 col-form-label">Customer:</label>
       <div class="col-sm-10">
         <input
+          formControlName="customer"
           type="Customer"
           class="form-control"
           id="Customer"
@@ -40,8 +42,8 @@
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
+        (click)="productSelection()"
         value="Goto Productselection"
-        routerLink="/product-selection"
       >
         Product Selection
       </button>
@@ -68,52 +70,12 @@
               <th scope="row">1</th>
               <td>{{ item.category }}</td>
               <td>{{ item.productName }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>{{item.orderedDate}}</td>
-              <td>{{item.unitPrice}}</td>
-              <td>{{item.cust_email}}</td>
-              <td>{{item.orderBy}}</td>
-            </tr>
-            <!-- <tr>
-              <th scope="row">2</th>
-              <td>soda</td>
-              <td>coke zero</td>
-              <td>2</td>
+              <td>{{ item.price }}</td>
               <td>0715/2019</td>
               <td>8.73</td>
-              <td>tom@gmail</td>
+              <td>tom@gmail></td>
               <td>Henry</td>
             </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>soda</td>
-              <td>coke zero</td>
-              <td>2</td>
-              <td>0715/2019</td>
-              <td>8.73</td>
-              <td>tom@gmail</td>
-              <td>Henry</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>soda</td>
-              <td>coke zero</td>
-              <td>2</td>
-              <td>0715/2019</td>
-              <td>8.73</td>
-              <td>tom@gmail</td>
-              <td>Henry</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>soda</td>
-              <td>coke zero</td>
-              <td>2</td>
-              <td>0715/2019</td>
-              <td>8.73</td>
-              <td>tom@gmail</td>
-              <td>Henry</td>
-            </tr> -->
           </tbody>
         </table>
 
@@ -148,7 +110,7 @@
       <div class="form-group row">
         <label for="input" class="col-xs-2 col-form-label">Total Amount:</label>
         <div class="col-sm-10">
-          <input type="Tax" class="form-control" id="input" placeholder=" " />
+          <label *ngIf="totalAmount">{{ totalAmount }}</label>
         </div>
       </div>
     </div>
@@ -156,5 +118,10 @@
 </div>
 
 <div class="submit">
-  <input class="btn btn-primary" type="submit" value="Submit" />
+  <input
+    class="btn btn-primary"
+    (click)="onSubmitOrders()"
+    type="button"
+    value="Submit"
+  />
 </div>

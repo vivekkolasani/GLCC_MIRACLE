@@ -138,13 +138,13 @@ export class ProductSelectionComponent{
     console.log(prod_price);
     console.log(formData.value);
     let productDetails = {
-      category:prod_category,
-      productName:prod_name,
-      quantity:formData.value.quantity,
-      orderedDate:formData.value.orderDate,
-      unitPrice:prod_price,
-      cust_email:formData.value.emailID,
-      orderBy:formData.value.orderPlacedBy
+      category: prod_category,
+      productName: prod_name,
+      quantity: formData.value.quantity,
+      orderedDate: formData.value.orderDate,
+      unitPrice: prod_price,
+      cust_email: formData.value.emailID,
+      orderBy: formData.value.orderPlacedBy
     };
     localStorage.setItem("productDetails",JSON.stringify(productDetails));
     this.router.navigate(["/order-details"]);

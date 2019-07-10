@@ -1,60 +1,64 @@
 import { Component, OnInit } from "@angular/core";
-// import { Product } from "../product";
 import { Router } from "@angular/router";
-// import { ProductService } from "../product.service";
+
+import {
+  FormsModule,
+  FormGroup,
+  FormBuilder,
+  FormControl
+} from "@angular/forms";
 
 @Component({
   selector: "app-order-details",
   templateUrl: "./order-details.component.html",
   styleUrls: ["./order-details.component.scss"]
+  // providers: [ProductService]
 })
 export class OrderDetailsComponent implements OnInit {
   public products = [];
-
+  public Order = [];
+  private formGroup: FormGroup;
   orderPrice: number;
+  totalAmount: number;
   selectedProductDetails = [];
   constructor(
-    private router: Router // private _productService: ProductService
-  ) {}
-
+    private router: Router,
+    private fb: FormBuilder // private formGroup: FormGroup // private _productService: ProductService
+  ) {
+    this.createForm();
+  }
+  createForm() {
+    debugger;
+    this.formGroup = this.fb.group({
+      orderNumber: new FormControl(""),
+      customer: new FormControl("")
+    });
+  }
   ngOnInit() {
-    // debugger;
+    debugger;
     let productDetailsData = JSON.parse(localStorage.getItem("productDetails"));
     this.orderPrice =
       productDetailsData.unitPrice * productDetailsData.quantity;
+    this.totalAmount =
+      productDetailsData.orderPrice +
+      productDetailsData.tax +
+      productDetailsData.discounts;
     this.selectedProductDetails.push(productDetailsData);
-    console.log(productDetailsData);
     // this.products = this._productService.getProducts();
   }
 
-  // getOrderPrice() {
-  //     this.orderPrice = this.products.reduce(function(unitPrice: number, quantity: number) => {
-  //      orderPrice =  (Product.unitPrice * Product.quantity);
-  //     },0);
-  // }
-  //   getTotalAmount() {
-  //     if (this.yourdatalist) {
-  //         return this.yourdatalist.map(t => t.Amount).reduce((a, value) => a + value, 0);
-  //     }
-  //     return 0;
-  // }
-
-  // <td>{{getTotalAmount()}}</td>
-  // this.getALLProducts()
-
-  //       this.orderedDate = new Date().getTime();
-  //       this.ProductName = Productselection.items.map(i => {
-  //           return {
-  //               product: {
-  //                   title: i.title,
-  //                   unitPrice: i.unitPrice,
-  //                  },
-  //               quantity: i.quantity,
-  //               totalPrice: i.totalPrice // I want to loop this property and sum up
-
-  //           }
-  //       })
-
-  //   }
-  // }
+  productSelection() {
+    this.router.navigate(["/product-selection"]);
+  }
+  onSubmitOrders() {
+    debugger;
+    let orderDetails = {
+      orderNumber: this.formGroup.value.orderNumber,
+      customer: this.formGroup.value.customer,
+      productDetails: this.selectedProductDetails,
+      orderPrice: this.orderPrice,
+      totalAMount: this.totalAmount ? this.totalAmount : 0
+    };
+    console.log(orderDetails);
+  }
 }

@@ -13,7 +13,7 @@ import { ProductSelectionComponent } from './components/product-selection/produc
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AgGridModule } from 'ag-grid-angular';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
@@ -36,6 +36,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     NgxChartsModule,
     AgGridModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
