@@ -48,8 +48,8 @@ public class OrdersController {
 		order.setTax(o1.getTax());
 		order.setRequireddate(o1.getRequireddate());
 		order.setShippeddate(o1.getShippeddate());
-		order.setStatus(o1.getStatus());
-		order.setType(o1.getType());
+		order.setStatus("PLA");
+		order.setType("SO");
 //		orderRepository.save(order);
 		orderRepository.save(order);
 		addLineItems(o1.getProductDetails(), o1.getOrderNum());

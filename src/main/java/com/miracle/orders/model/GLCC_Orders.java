@@ -31,6 +31,8 @@ public class GLCC_Orders {
 	float paymentAmount;
 	@Column
 	String Status;
+	@Column
+	String type;
 	public String getStatus() {
 		return Status;
 	}
@@ -43,8 +45,6 @@ public class GLCC_Orders {
 	public void setType(String type) {
 		this.type = type;
 	}
-	@Column
-	String type;
 	
 	public GLCC_Orders() {
 		super();
