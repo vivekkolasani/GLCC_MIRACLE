@@ -1,29 +1,29 @@
-package com.miracle.orders;
+package com.miracle.orders.model;
 
-import java.util.Date;
+//import java.util.Date;
 
 public class OrderDetails 
 {
 	
-	private int orderNum;
+	private String orderNum;
 	private String custId;
 	private Line_Items[] productDetails;
 	private float orderPrice;
 	private float tax;
 	private float discount;
-	private Date ordereddate;
+	private String ordereddate;
 //	private float coupon;
 	
-	public Date getOrdereddate() {
+	public String getOrdereddate() {
 		return ordereddate;
 	}
-	public void setOrdereddate(Date ordereddate) {
+	public void setOrdereddate(String ordereddate) {
 		this.ordereddate = ordereddate;
 	}
-	public int getOrderNum() {
+	public String getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(int orderNum) {
+	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
 	public String getCustId() {

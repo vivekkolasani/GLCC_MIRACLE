@@ -1,4 +1,4 @@
-package com.miracle.orders;
+package com.miracle.orders.controller;
 
 import java.util.List;
 
@@ -12,6 +12,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.miracle.orders.model.GLCC_Orders;
+import com.miracle.orders.model.GLCC_Product;
+import com.miracle.orders.model.Line_Items;
+import com.miracle.orders.model.OrderDetails;
+import com.miracle.orders.repository.LineRepository;
+import com.miracle.orders.repository.OrderRepository;
+import com.miracle.orders.repository.ProductRepository;
 
 @RestController
 public class OrdersController {
@@ -29,6 +37,7 @@ public class OrdersController {
 	@Modifying(clearAutomatically = true)
 	public void addNewOrder(@RequestBody OrderDetails o1) {
 		GLCC_Orders order = new GLCC_Orders();
+		order.setOrderNumber(o1.getOrderNum());
 		order.setCustId(o1.getCustId());
 		order.setDiscountPrice(o1.getDiscount());
 		order.setOrderdate(o1.getOrdereddate());
@@ -37,6 +46,7 @@ public class OrdersController {
 		order.setTax(o1.getTax());
 		orderRepository.save(order);
 		for(Line_Items l1 : o1.getProductDetails()) {
+			l1.setOrderNumber(order.getOrderNumber());
 			lineRepository.save(l1);
 		}
 	}

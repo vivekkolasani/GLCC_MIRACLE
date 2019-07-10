@@ -1,7 +1,5 @@
-package com.miracle.orders;
+package com.miracle.orders.model;
 
-import java.util.Date;
-//import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,14 +13,12 @@ public class GLCC_Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	String orderNumber;
-//	@Column
-//	List<GLCC_Product> lineItems;
 	@Column
-	Date orderdate;
+	String orderdate;
 	@Column
-	Date requireddate;
+	String requireddate;
 	@Column
-	Date shippeddate;
+	String shippeddate;
 	@Column
 	String custId;
 	@Column
@@ -42,7 +38,7 @@ public class GLCC_Orders {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public GLCC_Orders(String orderNumber, Date orderdate, Date requireddate, Date shippeddate, String custId,
+	public GLCC_Orders(String orderNumber, String orderdate, String requireddate, String shippeddate, String custId,
 			float tax, float discountPrice, float orderTotalPrice, float paymentAmount) {
 		super();
 		this.orderNumber = orderNumber;
@@ -62,22 +58,22 @@ public class GLCC_Orders {
 	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
 	}
-	public Date getOrderdate() {
+	public String getOrderdate() {
 		return orderdate;
 	}
-	public void setOrderdate(Date orderdate) {
+	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
-	public Date getRequireddate() {
+	public String getRequireddate() {
 		return requireddate;
 	}
-	public void setRequireddate(Date requireddate) {
+	public void setRequireddate(String requireddate) {
 		this.requireddate = requireddate;
 	}
-	public Date getShippeddate() {
+	public String getShippeddate() {
 		return shippeddate;
 	}
-	public void setShippeddate(Date shippeddate) {
+	public void setShippeddate(String shippeddate) {
 		this.shippeddate = shippeddate;
 	}
 	public String getCustId() {

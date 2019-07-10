@@ -1,4 +1,4 @@
-package com.miracle.orders;
+package com.miracle.orders.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
