@@ -1,18 +1,52 @@
 package com.miracle.orders.model;
 
-//import java.util.Date;
-
 public class OrderDetails 
 {
 	
-	private String orderNum;
-	private String custId;
+	String orderNum;
+	String ordereddate;
+	String requireddate;
+	String shippeddate;
+	String custId;
+	float tax;
+	float discount;
+	float orderPrice;
+	float paymentAmount;
+	String Status;
+	String type;
 	private Line_Items[] productDetails;
-	private float orderPrice;
-	private float tax;
-	private float discount;
-	private String ordereddate;
 //	private float coupon;
+	
+	public String getRequireddate() {
+		return requireddate;
+	}
+	public void setRequireddate(String requireddate) {
+		this.requireddate = requireddate;
+	}
+	public String getShippeddate() {
+		return shippeddate;
+	}
+	public void setShippeddate(String shippeddate) {
+		this.shippeddate = shippeddate;
+	}
+	public float getPaymentAmount() {
+		return paymentAmount;
+	}
+	public void setPaymentAmount(float paymentAmount) {
+		this.paymentAmount = paymentAmount;
+	}
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 	public String getOrdereddate() {
 		return ordereddate;

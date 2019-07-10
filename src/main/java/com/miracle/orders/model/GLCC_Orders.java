@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class GLCC_Orders {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	String orderNumber;
 	@Column
 	String orderdate;
@@ -31,6 +31,18 @@ public class GLCC_Orders {
 	float paymentAmount;
 	@Column
 	String Status;
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	@Column
 	String type;
 	
