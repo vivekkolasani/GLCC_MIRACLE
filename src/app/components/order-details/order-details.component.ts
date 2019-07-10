@@ -20,6 +20,7 @@ export class OrderDetailsComponent implements OnInit {
   private formGroup: FormGroup;
   orderPrice: number;
   totalAmount: number;
+  tax: number;
   selectedProductDetails = [];
   constructor(
     private router: Router,
@@ -39,10 +40,12 @@ export class OrderDetailsComponent implements OnInit {
     let productDetailsData = JSON.parse(localStorage.getItem("productDetails"));
     this.orderPrice =
       productDetailsData.unitPrice * productDetailsData.quantity;
+      this.tax = (10/100) * +this.orderPrice;
+
     this.totalAmount =
-      productDetailsData.orderPrice +
-      productDetailsData.tax +
-      productDetailsData.discounts;
+      this.orderPrice +
+      this.tax +
+
     this.selectedProductDetails.push(productDetailsData);
     // this.products = this._productService.getProducts();
   }
