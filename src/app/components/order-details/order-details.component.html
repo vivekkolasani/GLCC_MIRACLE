@@ -40,8 +40,8 @@
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-        (click)="productSelection()"
         value="Goto Productselection"
+        routerLink="/product-selection"
       >
         Product Selection
       </button>
@@ -70,7 +70,7 @@
               <td>{{ item.productName }}</td>
               <td>{{ item.quantity }}</td>
               <td>{{item.orderedDate}}</td>
-              <td>{{item.price}}</td>
+              <td>{{item.unitPrice}}</td>
               <td>{{item.cust_email}}</td>
               <td>{{item.orderBy}}</td>
             </tr>

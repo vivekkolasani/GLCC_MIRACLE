@@ -7,7 +7,6 @@ import { Router } from "@angular/router";
   selector: "app-order-details",
   templateUrl: "./order-details.component.html",
   styleUrls: ["./order-details.component.scss"]
-  // providers: [ProductService]
 })
 export class OrderDetailsComponent implements OnInit {
   public products = [];
@@ -26,10 +25,6 @@ export class OrderDetailsComponent implements OnInit {
     this.selectedProductDetails.push(productDetailsData);
     console.log(productDetailsData);
     // this.products = this._productService.getProducts();
-  }
-
-  productSelection() {
-    this.router.navigate(["/product-selection"]);
   }
 
   // getOrderPrice() {

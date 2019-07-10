@@ -1,21 +1,21 @@
 import { Component, NgModule, ViewChild } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient } from "@angular/common/http";
 import { AgGridModule } from 'ag-grid-angular';
 import { filter } from 'minimatch';
 import {Router} from "@angular/router";
 
 
-@NgModule({
-  imports: [
+/* @NgModule({
+   imports: [
      FormsModule,
      FormGroup,
      FormControl,
      AgGridModule,
      HttpClient,
      Router
-  ]
-})
+   ]
+}) */
 
 @Component({
   selector: 'app-product-selection',
@@ -36,12 +36,12 @@ export class ProductSelectionComponent{
   private rowData: any;
   private searchData;
   private categoryData;
+  // private selectedRows
 
-  prod_name = "";
-  product_Id = "";
-  prod_price:any;
-  prod_category:any;
-
+  // private prod_name;
+  // private product_Id;
+  // private prod_price;
+  // private prod_category;
 
   constructor(private http: HttpClient, private router:Router) {
 
@@ -70,28 +70,28 @@ export class ProductSelectionComponent{
   this.rowSelection = "single";
 }
 
-  onSelectionChanged() {
-    var selectedRows = this.gridApi.getSelectedRows();
-    var selectedRowsString = "";
-    // var prod_name = "";
-    // var product_Id = "";
-    // var prod_price = "";
-    // var prod_category = "";
-    selectedRows.forEach(function(selectedRow, index) {
-      if (index !== 0) {
-        selectedRowsString += ", ";
-      }
-      selectedRowsString += selectedRow.productName;
-      this.prod_name = selectedRow.productName;
-      this.product_Id = selectedRow.productId;
-      this.prod_price = selectedRow.price;
-      this.prod_category = selectedRow.category;
-    });
-    console.log(this.prod_name);
-    console.log(this.product_Id);
-    console.log(this.prod_price);
-    console.log(this.prod_category);
-  }
+  // onSelectionChanged() {
+  //   var selectedRows = this.gridApi.getSelectedRows();
+  //   var selectedRowsString = "";
+  //   // var prod_name = "";
+  //   // var product_Id = "";
+  //   // var prod_price = "";
+  //   // var prod_category = "";
+  //   selectedRows.forEach(function(selectedRow, index) {
+  //     if (index !== 0) {
+  //       selectedRowsString += ", ";
+  //     }
+  //     selectedRowsString += selectedRow.productName;
+  //     this.prod_name = selectedRow.productName;
+  //     this.product_Id = selectedRow.productId;
+  //     this.prod_price = selectedRow.price;
+  //     this.prod_category = selectedRow.category;
+  //   });
+  //   console.log(this.prod_name);
+  //   console.log(this.product_Id);
+  //   console.log(this.prod_price);
+  //   console.log(this.prod_category);
+  // }
 
 
 
@@ -116,19 +116,38 @@ export class ProductSelectionComponent{
   }
 
   submitProductInfo(formData){
-    console.log(this.prod_price);
+
+    var selectedRows = this.gridApi.getSelectedRows();
+    var selectedRowsString = "";
+    var prod_name = "";
+    var product_Id = "";
+    var prod_price = "";
+    var prod_category = "";
+
+    selectedRows.forEach(function(selectedRow, index) {
+      if (index !== 0) {
+        selectedRowsString += ", ";
+      }
+      selectedRowsString += selectedRow.productName;
+      prod_name = selectedRow.productName;
+      product_Id = selectedRow.productId;
+      prod_price = selectedRow.price;
+      prod_category = selectedRow.category;
+    });
+
+    console.log(prod_price);
     console.log(formData.value);
     let productDetails = {
-      category:this.prod_category,
-      productName:this.prod_name,
+      category:prod_category,
+      productName:prod_name,
       quantity:formData.value.quantity,
       orderedDate:formData.value.orderDate,
-      unitPrice:this.prod_price,
+      unitPrice:prod_price,
       cust_email:formData.value.emailID,
       orderBy:formData.value.orderPlacedBy
     };
     localStorage.setItem("productDetails",JSON.stringify(productDetails));
-    this.router.navigate(["/orders"]);
+    this.router.navigate(["/order-details"]);
   }
 
 }

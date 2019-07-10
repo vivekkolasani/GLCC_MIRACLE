@@ -3,7 +3,7 @@
     <mat-sidenav class="app-sidenav mat-elevation-z10" #sidenav [opened]="!isScreenSmall()" [mode]="isScreenSmall() ? 'over' : 'side'">
     <mat-toolbar color="accent"> Dashboard </mat-toolbar>
     <mat-nav-list>
-      <mat-list-item> Create Order </mat-list-item>
+      <mat-list-item routerLink="/order-details"> Create Order </mat-list-item>
       <mat-list-item> Review Order/ Invoice </mat-list-item>
       <mat-list-item> Check Invoice </mat-list-item>
       <mat-list-item> Payment History </mat-list-item>
