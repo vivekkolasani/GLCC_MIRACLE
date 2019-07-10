@@ -1,29 +1,63 @@
-package com.miracle.orders;
-
-import java.util.Date;
+package com.miracle.orders.model;
 
 public class OrderDetails 
 {
 	
-	private int orderNum;
-	private String custId;
+	String orderNum;
+	String ordereddate;
+	String requireddate;
+	String shippeddate;
+	String custId;
+	float tax;
+	float discount;
+	float orderPrice;
+	float paymentAmount;
+	String Status;
+	String type;
 	private Line_Items[] productDetails;
-	private float orderPrice;
-	private float tax;
-	private float discount;
-	private Date ordereddate;
 //	private float coupon;
 	
-	public Date getOrdereddate() {
+	public String getRequireddate() {
+		return requireddate;
+	}
+	public void setRequireddate(String requireddate) {
+		this.requireddate = requireddate;
+	}
+	public String getShippeddate() {
+		return shippeddate;
+	}
+	public void setShippeddate(String shippeddate) {
+		this.shippeddate = shippeddate;
+	}
+	public float getPaymentAmount() {
+		return paymentAmount;
+	}
+	public void setPaymentAmount(float paymentAmount) {
+		this.paymentAmount = paymentAmount;
+	}
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public String getOrdereddate() {
 		return ordereddate;
 	}
-	public void setOrdereddate(Date ordereddate) {
+	public void setOrdereddate(String ordereddate) {
 		this.ordereddate = ordereddate;
 	}
-	public int getOrderNum() {
+	public String getOrderNum() {
 		return orderNum;
 	}
-	public void setOrderNum(int orderNum) {
+	public void setOrderNum(String orderNum) {
 		this.orderNum = orderNum;
 	}
 	public String getCustId() {
