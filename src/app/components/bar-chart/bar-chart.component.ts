@@ -16,7 +16,7 @@ export class BarChartComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Cokes';
   showYAxisLabel = true;
   yAxisLabel = 'Sales';
   timeline = true;
@@ -54,80 +54,80 @@ public single = [
 ];
 public multi = [
   {
-    "name": "China",
+    "name": "Coke",
     "series": [
       {
         "name": "2018",
-        "value": 2243772
+        "value": 224
       },
       {
         "name": "2017",
-        "value": 1227770
+        "value": 321
       }
     ]
   },
   {
-    "name": "USA",
+    "name": "Diet Coke",
     "series": [
       {
         "name": "2018",
-        "value": 1126000
+        "value": 112
       },
       {
         "name": "2017",
-        "value": 764666
+        "value": 464
       }
     ]
   },
   {
-    "name": "Norway",
+    "name": "Sprite",
     "series": [
       {
         "name": "2018",
-        "value": 296215
+        "value": 296
       },
       {
         "name": "2017",
-        "value": 209122
+        "value": 209
       }
     ]
   },
   {
-    "name": "Japan",
+    "name": "Dr.Pepper",
     "series": [
       {
         "name": "2018",
-        "value": 257363
+        "value": 257
       },
       {
         "name": "2017",
-        "value": 205350
+        "value": 205
       }
     ]
   },
   {
-    "name": "Germany",
+    "name": "Coke Zero",
     "series": [
       {
         "name": "2018",
-        "value": 196750
+        "value": 196
       },
       {
         "name": "2017",
-        "value": 129246
+        "value": 129
       }
     ]
   },
   {
-    "name": "France",
+    "name": "Coke Cherry",
     "series": [
       {
         "name": "2018",
-        "value": 204617
+        "value": 204
       },
       {
         "name": "2017",
-        "value": 149797
+        "value": 149
       }
     ]
   }
