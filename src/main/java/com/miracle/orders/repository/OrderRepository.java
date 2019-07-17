@@ -10,4 +10,5 @@ import com.miracle.orders.model.GLCC_Orders;
 @Repository
 public interface OrderRepository extends JpaRepository<GLCC_Orders, String> {
 	public List<GLCC_Orders> findByCustId(String custId);
+	public GLCC_Orders findByOrderNumber(String orderNumber);
 }

@@ -1,5 +1,7 @@
 package com.miracle.orders.model;
 
+import java.util.Arrays;
+
 public class OrderDetails 
 {
 	
@@ -17,6 +19,13 @@ public class OrderDetails
 	private Line_Items[] productDetails;
 //	private float coupon;
 	
+	@Override
+	public String toString() {
+		return "OrderDetails [orderNum=" + orderNum + ", ordereddate=" + ordereddate + ", requireddate=" + requireddate
+				+ ", shippeddate=" + shippeddate + ", custId=" + custId + ", tax=" + tax + ", discount=" + discount
+				+ ", orderPrice=" + orderPrice + ", paymentAmount=" + paymentAmount + ", Status=" + Status + ", type="
+				+ type + ", productDetails=" + Arrays.toString(productDetails) + "]";
+	}
 	public String getRequireddate() {
 		return requireddate;
 	}

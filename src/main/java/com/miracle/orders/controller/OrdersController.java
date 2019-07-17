@@ -1,5 +1,6 @@
 package com.miracle.orders.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,8 @@ public class OrdersController {
 	@PostMapping("/orders/newOrder")
 	@Transactional
 	@Modifying(clearAutomatically = true)
-	public void addNewOrder(@RequestBody OrderDetails o1) {
+	public OrderDetails addNewOrder(@RequestBody OrderDetails o1) {
+		System.out.println(o1.toString());
 		GLCC_Orders order = new GLCC_Orders();
 		order.setOrderNumber(o1.getOrderNum());
 		order.setCustId(o1.getCustId());
@@ -53,6 +55,7 @@ public class OrdersController {
 //		orderRepository.save(order);
 		orderRepository.save(order);
 		addLineItems(o1.getProductDetails(), o1.getOrderNum());
+		return o1;
 	}
 	
 	@PostMapping
@@ -92,6 +95,22 @@ public class OrdersController {
 	@GetMapping("/orders/{custId}")
 	public List<GLCC_Orders> displayAll(@PathVariable(value = "custId") String customerId){
 		return orderRepository.findByCustId(customerId);
+	}
+	
+	@GetMapping("/orders")
+	public List<GLCC_Orders> displayAllOrders(){
+		List<GLCC_Orders> orders = orderRepository.findAll();
+		List<GLCC_Orders> result = new ArrayList<GLCC_Orders>();
+		for(GLCC_Orders o : orders) {
+			if(!"CAN".equalsIgnoreCase(o.getStatus()))
+				result.add(o);
+		}
+		return result;
+	}
+	
+	@GetMapping("/orders/{orderId}")
+	public GLCC_Orders displayOrderById(@PathVariable(value = "orderId") String orderId) {
+		return orderRepository.findByOrderNumber(orderId);
 	}
 	
 	@GetMapping("/products")
